@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://java.sun.com/jsf/html">
+
+<ui:composition template="/master.xhtml">
+
+	<ui:define name="content">
+		<h2>Registro de Departamentos</h2>
+		<h:form>
+
+			<h:outputLabel value="Id" for="id" styleClass="control-label" />
+			<p:inputText id="id" styleClass="form-control"
+				value="#{departamentoController.d.idDepartamento}" required="true" />
+
+
+			<h:outputLabel value="Nombre del Departamento:" for="nombreDepa"
+				styleClass="control-label" />
+			<p:inputText id="nombreDepa" styleClass="form-control"
+				value="#{departamentoController.d.nombreDepartamento}" required="true" />
+
+			<p:commandButton value="Grabar"
+				actionListener="#{departamentoController.insert()}"
+				action="listDepartamento?faces-redirect=true" update="@form" />
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>
