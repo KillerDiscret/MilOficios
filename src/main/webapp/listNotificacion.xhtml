@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/html"> <ui:composition
+	template="/master.xhtml">
+
+	<ui:define name="content">
+
+		<h2>Lista de Notificaciones</h2>
+		<h:form>
+
+			<table class="table"> <thead> <tr> <th
+				scope="col">Id</th> <th scope="col">Nombre Notificacion</th> <th scope="col">Descripcion</th> <th
+				scope="col">Operación</th> </tr> </thead> </table>
+
+			<p:dataTable id="lstNotificacion" var="tn" class="table table-hover"
+				value="#{tipoNotificacionController.listaTipoNotificaciones}"
+				paginator="true" paginatorPosition="top"
+				rowsPerPageTemplate="5,10,15,20,25" rows="25"
+				emptyMessage="No existen registros" rowsIndexVar="item">
+
+				<p:column headerText="Id">
+					<h:outputText value="#{tn.idTipoNotificacion}" />
+				</p:column>
+
+				<p:column headerText="Nombre de Notificación">
+					<h:outputText value="#{tn.nombreNotificacion}" />
+				</p:column>
+
+				<p:column headerText="Descripción">
+					<h:outputText value="#{tn.descripcionNotificacion}" />
+				</p:column>
+
+				<p:column headerText="Operación">
+					<h:commandLink action="listNotificacion"
+						actionListener="#{tipoNotificacionController.delete(tn)}">
+					Eliminar
+					</h:commandLink>
+				</p:column>
+
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+
+
+
+
+
+
+
+
+
+
+
+</ui:composition> </html>

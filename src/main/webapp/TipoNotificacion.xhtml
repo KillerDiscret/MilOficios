@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/html"> <ui:composition
+	template="/master.xhtml">
+
+	<ui:define name="content">
+		<h2>Añadir Notificaciones</h2>
+		<h:form>
+
+			<h:outputLabel value="Id:" for="id" styleClass="control-label" />
+			<p:inputText id="id" styleClass="form-control"
+				value="#{tipoNotificacionController.d.idTipoNotificacion}"
+				required="true" />
+
+
+			<h:outputLabel value="Nombre de Notificación:" for="nombreNoti"
+				styleClass="control-label" />
+			<p:inputText id="nombreNoti" styleClass="form-control"
+				value="#{tipoNotificacionController.d.nombreNotificacion}"
+				required="true" />
+
+			<h:outputLabel value="Descripción:" for="desNoti"
+				styleClass="control-label" />
+			<p:inputText id="desNoti" styleClass="form-control"
+				value="#{tipoNotificacionController.d.descripcionNotificacion}"
+				required="true" />
+
+			<p:commandButton value="Grabar" class="btn btn-primary btn-lg"
+				style="margin-top: 10px"
+				actionListener="#{tipoNotificacionController.insert()}"
+				action="listNotificacion?faces-redirect=true" update="@form" />
+
+		</h:form>
+	</ui:define>
+
+</ui:composition> </html>

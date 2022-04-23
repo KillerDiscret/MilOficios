@@ -77,7 +77,7 @@ public class TipoNotificacionController {
 		return listaTipoNotificaciones;
 	}
 
-	public void setListaDepartamentos(List<TipoNotificacion> listaTipoNotificaciones) {
+	public void setListaTipoNotificaciones(List<TipoNotificacion> listaTipoNotificaciones) {
 		this.listaTipoNotificaciones = listaTipoNotificaciones;
 	}
 }
