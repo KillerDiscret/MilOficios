@@ -11,7 +11,7 @@
 		<h2>Registro de Departamentos</h2>
 		<h:form>
 
-			<h:outputLabel value="Id" for="id" styleClass="control-label" />
+			<h:outputLabel value="Id:" for="id" styleClass="control-label" />
 			<p:inputText id="id" styleClass="form-control"
 				value="#{departamentoController.d.idDepartamento}" required="true" />
 
@@ -21,7 +21,7 @@
 			<p:inputText id="nombreDepa" styleClass="form-control"
 				value="#{departamentoController.d.nombreDepartamento}" required="true" />
 
-			<p:commandButton value="Grabar"
+			<p:commandButton value="Grabar" class="btn btn-primary btn-lg" style="margin-top: 10px"
 				actionListener="#{departamentoController.insert()}"
 				action="listDepartamento?faces-redirect=true" update="@form" />
 
