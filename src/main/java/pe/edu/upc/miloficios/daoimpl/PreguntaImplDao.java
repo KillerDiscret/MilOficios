@@ -23,7 +23,7 @@ public class PreguntaImplDao implements IPreguntaDao {
 		try {
 			em.persist(p);
 		} catch (Exception e) {
-			System.out.println("Error al insertar departamento");
+			System.out.println("Error al insertar pregunta");
 		}
 	}
 
@@ -34,7 +34,7 @@ public class PreguntaImplDao implements IPreguntaDao {
 		List<Pregunta> listaPreguntas = new ArrayList<Pregunta>();
 		
 		try {
-			Query jpql = em.createQuery("from Departamento d");
+			Query jpql = em.createQuery("from Pregunta p");
 			listaPreguntas = (List<Pregunta>)jpql.getResultList();
 		} catch (Exception e) {
 			System.out.println("Error al listar preguntas");
@@ -64,7 +64,7 @@ public class PreguntaImplDao implements IPreguntaDao {
 		try {
 			em.merge(pr);
 		} catch (Exception e) {
-			System.out.println("Error al modificar departamento en el DAO");
+			System.out.println("Error al modificar pregunta en el DAO");
 		}
 		
 	}

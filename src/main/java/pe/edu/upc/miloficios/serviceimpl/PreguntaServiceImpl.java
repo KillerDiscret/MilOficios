@@ -33,9 +33,9 @@ public class PreguntaServiceImpl implements IPreguntaService {
 	}
 
 	@Override
-	public void update(Pregunta de) {
+	public void update(Pregunta pr) {
 		// TODO Auto-generated method stub
-		pDao.update(de);
+		pDao.update(pr);
 	}
 
 	@Override
