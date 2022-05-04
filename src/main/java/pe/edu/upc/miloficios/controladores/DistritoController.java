@@ -61,7 +61,7 @@ public class DistritoController {
 
 		try {
 
-			dsService.delete(dis.getId());
+			dsService.delete(dis.getIdDistrito());
 			this.list();
 
 		} catch (Exception e) {

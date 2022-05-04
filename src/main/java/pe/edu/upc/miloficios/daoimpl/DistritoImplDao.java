@@ -73,8 +73,8 @@ public class DistritoImplDao implements IDistritoDao {
 		List<Distrito> listaBuscada = new ArrayList<Distrito>();
 		
 		try {
-			Query q = em.createQuery("from Distrito ds where ds.name like ?1");
-			q.setParameter(1, "%" + ds.getName() + "%");
+			Query q = em.createQuery("from Distrito ds where ds.nombreDistrito like ?1");
+			q.setParameter(1, "%" + ds.getNombreDistrito() + "%");
 			listaBuscada = (List<Distrito>)q.getResultList();
 		
 		} catch (Exception e) {
