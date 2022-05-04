@@ -32,7 +32,7 @@ public class TipoNotificacionController {
 	// Métodos
 	public String newTipoNotificacion() {
 
-		this.setD(new TipoNotificacion());
+		this.setT(new TipoNotificacion());
 		return "TipoNotificacion.xhtml";
 	}
 
@@ -63,13 +63,34 @@ public class TipoNotificacionController {
 
 	}
 
+	public String premodificar(TipoNotificacion tn) {
+		this.setT(tn);
+		return "modificacionTN.xhtml";
+	}
+	
+	public void modificar() {
+		try {
+			tnService.modificar(this.tn);
+		} catch (Exception e) {
+			System.out.println("Error al modificar el controlador de tipo de notificacion");
+		}
+	}
+	
+	public void findByname() {
+		try {
+			listaTipoNotificaciones=tnService.findByName(this.getT());
+		} catch (Exception e) {
+			System.out.println("Error al buscar en el controller tipo de notificacion");
+		}
+	}
+	
 	// getters and setters
 
-	public TipoNotificacion getD() {
+	public TipoNotificacion getT() {
 		return tn;
 	}
 
-	public void setD(TipoNotificacion tn) {
+	public void setT(TipoNotificacion tn) {
 		this.tn = tn;
 	}
 

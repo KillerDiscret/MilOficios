@@ -32,4 +32,16 @@ public class TipoNotificacionServiceImpl implements ITipoNotificacionService {
 		// TODO Auto-generated method stub
 		dDao.delete(idTipoNotificacion);
 	}
+
+	@Override
+	public void modificar(TipoNotificacion tn) {
+		// TODO Auto-generated method stub
+		dDao.modificar(tn);
+	}
+
+	@Override
+	public List<TipoNotificacion> findByName(TipoNotificacion tn) {
+		// TODO Auto-generated method stub
+		return dDao.findByName(tn);
+	}
 }

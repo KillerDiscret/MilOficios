@@ -9,6 +9,7 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import pe.edu.upc.miloficios.dao.ITipoNotificacionDao;
+import pe.edu.upc.miloficios.entidades.Departamento;
 import pe.edu.upc.miloficios.entidades.TipoNotificacion;
 
 public class TipoNotificacionImplDao implements ITipoNotificacionDao {
@@ -54,6 +55,31 @@ public class TipoNotificacionImplDao implements ITipoNotificacionDao {
 			
 			System.out.println("Error al eliminar en el dao");
 		}
+	}
+
+	@Override
+	public void modificar(TipoNotificacion tn) {
+		// TODO Auto-generated method stub
+		try {
+			em.merge(tn);
+		} catch (Exception e) {
+			System.out.println("Error al modificar tipo de notificacion en el DAO");
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TipoNotificacion> findByName(TipoNotificacion tn) {
+		// TODO Auto-generated method stub
+		List<TipoNotificacion> listaBTipoNotificaciones=new ArrayList<TipoNotificacion>();
+		try {
+			Query q=em.createQuery("from TipoNotificacion tn where tn.getNombreNotificacion like ?1");
+			q.setParameter(1,"%"+tn.getNombreNotificacion()+"%");
+			listaBTipoNotificaciones=(List<TipoNotificacion>) q.getResultList();
+		} catch (Exception e) {
+			System.out.println("Error al buscar tipo de notificaciones");
+		}
+		return listaBTipoNotificaciones;
 	}
 	
 }

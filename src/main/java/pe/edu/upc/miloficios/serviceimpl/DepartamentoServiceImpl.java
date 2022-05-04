@@ -31,10 +31,17 @@ public class DepartamentoServiceImpl implements IDepartamentoService {
 		// TODO Auto-generated method stub
 		dDao.delete(idDepartamento);		
 	}
-	
-	
-	
-	
-	
+
+	@Override
+	public void update(Departamento de) {
+		// TODO Auto-generated method stub
+		dDao.update(de);
+	}
+
+	@Override
+	public List<Departamento> findByName(Departamento de) {
+		// TODO Auto-generated method stub
+		return dDao.findByName(de);
+	}
 	
 }

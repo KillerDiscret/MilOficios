@@ -65,6 +65,36 @@ public class DepartamentoController {
 
 	}
 
+	public void update() {
+
+		try {
+			dService.update(d);
+
+		} catch (Exception e) {
+			System.out.println("Error al modificar controlador de departamento");
+		}
+
+	}
+	
+	public String preUpdate(Departamento de) {
+		this.setD(de);
+		return "modificacionDepartamento.xhtml";
+	}
+	
+	
+	public void findByName() {
+		
+		try {
+			listaDepartamentos = dService.findByName(this.getD());
+			
+		} catch (Exception e) {
+			
+			System.out.println("Error al buscar en el controlador de departamento");
+		}
+		
+	}
+	
+
 	// getters and setters
 
 	public Departamento getD() {
