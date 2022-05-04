@@ -12,39 +12,45 @@
 		<h2>Lista de departamentos del Perú</h2>
 		<h:form>
 
-			<table class="table">
-				<thead>
-					<tr>
-						<th scope="col">Id</th>
-						<th scope="col" >Nombre Departamento</th>
-						<th scope="col" >Operación</th>
-					</tr>
-				</thead>
-			</table>
+			<div class="row">
 
-			<p:dataTable id="lstDepartamentos" var="de" class="table table-hover"
+				<h:outputLabel value="Ingrese el nombre del departamento a buscar: "
+					for="name" styleClass="control-label" />
+				<p:inputText id="name"
+					value="#{departamentoController.d.nombreDepartamento}" />
+
+				<p:commandButton value="Buscar" update="lstDepa"
+					actionListener="#{departamentoController.findByName()}" />
+
+			</div>
+
+			<p:dataTable id="lstDepa" var="de"
 				value="#{departamentoController.listaDepartamentos}"
 				paginator="true" paginatorPosition="top"
-				rowsPerPageTemplate="5,10,15,20,25" rows="25"
-				emptyMessage="No existen registros" rowsIndexVar="item" >
+				rowsPerPageTemplate="5,10,15,20,25" rows="10"
+				emptyMessage="No existen registros" rowIndexVar="item">
 
 				<p:column headerText="Id">
 					<h:outputText value="#{de.idDepartamento}" />
 				</p:column>
-
-				<p:column headerText="Nombre del Departamento">
+				<p:column headerText="Nombre Departamento">
 					<h:outputText value="#{de.nombreDepartamento}" />
 				</p:column>
-
-
+				<p:column headerText="Operación">
+					<h:commandLink action="#{departamentoController.preUpdate(de)}"
+						value="Modificar" />
+				</p:column>
 				<p:column headerText="Operación">
 					<h:commandLink action="listDepartamento"
 						actionListener="#{departamentoController.delete(de)}">
-					Eliminar
+						Eliminar							
 					</h:commandLink>
 				</p:column>
 
 			</p:dataTable>
+
+
+
 		</h:form>
 	</ui:define>
 

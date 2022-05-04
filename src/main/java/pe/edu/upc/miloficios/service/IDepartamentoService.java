@@ -12,4 +12,8 @@ public interface IDepartamentoService {
 	
 	public void delete(int idDepartamento);
 	
+	public void update(Departamento de);
+	
+	public List<Departamento> findByName(Departamento de);
+	
 }

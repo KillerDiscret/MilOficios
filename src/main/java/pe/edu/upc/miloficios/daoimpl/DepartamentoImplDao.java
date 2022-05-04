@@ -57,4 +57,35 @@ public class DepartamentoImplDao implements IDepartamentoDao {
 		
 	}
 
+	@Transactional
+	@Override
+	public void update(Departamento de) {
+		
+		try {
+			em.merge(de);
+		} catch (Exception e) {
+			System.out.println("Error al modificar departamento en el DAO");
+		}
+		
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Departamento> findByName(Departamento de) {
+		
+		List<Departamento> listaBuscada = new ArrayList<Departamento>();
+		
+		try {
+			Query q = em.createQuery("from Departamento d where d.nombreDepartamento like ?1");
+			q.setParameter(1, "%" + de.getNombreDepartamento() + "%");
+			listaBuscada = (List<Departamento>)q.getResultList();
+			
+		} catch (Exception e) {
+			
+			System.out.println("Error al buscar vacunas");
+		}
+		
+		return listaBuscada;
+	}
+
 }
