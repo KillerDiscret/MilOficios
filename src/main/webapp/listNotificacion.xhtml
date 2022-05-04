@@ -3,17 +3,27 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://java.sun.com/jsf/html"> <ui:composition
+	xmlns:p="http://java.sun.com/jsf/html"> 
+	
+	<ui:composition
 	template="/master.xhtml">
+
+
 
 	<ui:define name="content">
 
 		<h2>Lista de Notificaciones</h2>
 		<h:form>
 
-			<table class="table"> <thead> <tr> <th
-				scope="col">Id</th> <th scope="col">Nombre Notificacion</th> <th scope="col">Descripcion</th> <th
-				scope="col">Operación</th> </tr> </thead> </table>
+			<div class="row">
+			 <h:outputLabel value="Ingrese el nombre de la notificación a buscar: " 
+			 for="name" styleClass="control-label" /> 
+			<p:inputText id="name" 
+			value="#{tipoNotificacionController.tn.nombreNotificacion}" /> 
+			<p:commandButton value="Buscar" update="lstNotificacion"
+				actionListener="#{tipoNotificacionController.findByName()}" /> 
+			</div>
+
 
 			<p:dataTable id="lstNotificacion" var="tn" class="table table-hover"
 				value="#{tipoNotificacionController.listaTipoNotificaciones}"
@@ -34,6 +44,10 @@
 				</p:column>
 
 				<p:column headerText="Operación">
+					<h:commandLink action="#{tipoNotificacionController.preUpdate(tn)}"
+						value="Modificar" />
+				</p:column>
+				<p:column headerText="Operación">
 					<h:commandLink action="listNotificacion"
 						actionListener="#{tipoNotificacionController.delete(tn)}">
 					Eliminar
@@ -43,15 +57,5 @@
 			</p:dataTable>
 		</h:form>
 	</ui:define>
-
-
-
-
-
-
-
-
-
-
-
-</ui:composition> </html>
+	</ui:composition>
+</html>

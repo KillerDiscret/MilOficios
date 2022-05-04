@@ -1,5 +1,7 @@
 package pe.edu.upc.miloficios.entidades;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -55,6 +57,24 @@ public class TipoNotificacion {
 
 	public void setDescripcionNotificacion(String descripcionNotificacion) {
 		this.descripcionNotificacion = descripcionNotificacion;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(idTipoNotificacion);
+		
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TipoNotificacion other = (TipoNotificacion) obj;
+		return idTipoNotificacion == other.idTipoNotificacion;
 	}
 
 }
