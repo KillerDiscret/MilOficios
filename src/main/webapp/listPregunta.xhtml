@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/html">
+
+<ui:composition template="/master.xhtml">
+
+	<ui:define name="content">
+
+		<h2>Listado de Preguntas</h2>
+		<h:form>
+
+			<div class="row">
+
+				<h:outputLabel value="Ingrese la pregunta a realizar: "
+					for="name" styleClass="control-label" />
+				<p:inputText id="name"
+					value="#{preguntaController.p.texto}" />
+
+				<p:commandButton value="Buscar" update="lstPre"
+					actionListener="#{preguntaController.findByName()}" />
+
+			</div>
+
+			<p:dataTable id="lstPre" var="pr"
+				value="#{preguntaController.listaPreguntas}"
+				paginator="true" paginatorPosition="top"
+				rowsPerPageTemplate="5,10,15,20,25" rows="10"
+				emptyMessage="No existen registros" rowIndexVar="item">
+
+				<p:column headerText="Id">
+					<h:outputText value="#{de.idPregunta}" />
+				</p:column>
+				<p:column headerText="Pregunta">
+					<h:outputText value="#{pr.texto}" />
+				</p:column>
+				<p:column headerText="Operación">
+					<h:commandLink action="#{preguntaController.preUpdate(pr)}"
+						value="Modificar" />
+				</p:column>
+				<p:column headerText="Operación">
+					<h:commandLink action="listPregunta"
+						actionListener="#{preguntaController.delete(pr)}">
+						Eliminar							
+					</h:commandLink>
+				</p:column>
+
+			</p:dataTable>
+
+		</h:form>
+	</ui:define>
+
+
+</ui:composition>
+</html>
