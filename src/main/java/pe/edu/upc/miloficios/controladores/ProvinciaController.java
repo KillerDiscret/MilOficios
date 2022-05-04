@@ -60,6 +60,20 @@ public class ProvinciaController {
 		
 	}
 	
+	public void delete(Provincia pro) {
+		
+		try {
+			
+			pService.delete(pro.getId());
+			this.list();
+			
+		} catch (Exception e) {
+			System.out.println("Error al eliminar en el controller provincia");
+		}
+		
+		
+	}
+	
 	public void listDepartamentos() {
 		
 		try {
@@ -89,6 +103,19 @@ public class ProvinciaController {
 	}
 
 
+	public void findByName() {
+		
+		try {
+			listaProvincias = pService.findByName(this.getPr());
+			
+		} catch (Exception e) {
+			
+			System.out.println("Error al buscar en el controlador de departamento");
+		}
+		
+		
+	}
+	
 
 
 	public Provincia getPr() {
