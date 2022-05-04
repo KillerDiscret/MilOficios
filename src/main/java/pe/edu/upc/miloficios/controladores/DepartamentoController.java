@@ -22,6 +22,7 @@ public class DepartamentoController {
 
 	List<Departamento> listaDepartamentos;
 
+	
 	// Constructor
 	@PostConstruct
 	public void init() {

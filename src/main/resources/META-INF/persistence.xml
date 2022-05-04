@@ -8,6 +8,7 @@
 		<jta-data-source>java:/miloficiosDS</jta-data-source>
 		<class>pe.edu.upc.miloficios.entidades.Departamento</class>
 		<class>pe.edu.upc.miloficios.entidades.TipoNotificacion</class>
+		<class>pe.edu.upc.miloficios.entidades.Provincia</class>
 		<properties>
 			<property
 				name="javax.persistence.schema-generation.database.action"
