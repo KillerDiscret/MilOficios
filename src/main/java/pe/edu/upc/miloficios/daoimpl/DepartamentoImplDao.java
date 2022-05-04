@@ -88,4 +88,8 @@ public class DepartamentoImplDao implements IDepartamentoDao {
 		return listaBuscada;
 	}
 
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

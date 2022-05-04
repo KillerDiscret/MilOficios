@@ -16,4 +16,8 @@ public interface IDepartamentoService {
 	
 	public List<Departamento> findByName(Departamento de);
 	
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes
