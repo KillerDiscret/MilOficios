@@ -1,5 +1,7 @@
 package pe.edu.upc.miloficios.entidades;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,9 +47,24 @@ public class Departamento {
 		this.nombreDepartamento = nombreDepartamento;
 	}
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(idDepartamento);
+		
+	}
 	
-	
-	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Departamento other = (Departamento) obj;
+		return idDepartamento == other.idDepartamento;
+	}
+
 	
 
 }

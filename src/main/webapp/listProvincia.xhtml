@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/html">
+
+<ui:composition template="master.xhtml">
+
+
+	<ui:define name="content">
+		<h2>Lista de Provincia</h2>
+
+		<h:form>
+		
+
+
+			<p:dataTable id="lstProvincia" var="pr"
+				value="#{provinciaController.listaProvincias}" paginator="true"
+				paginatorPosition="top" rowsPerPageTemplate="5,10,15,20,25"
+				rows="10" emptyMessage="No existen registros" rowIndexVar="item">
+
+				<p:column headerText="IdProvincia">
+					<h:outputText value="#{pr.id}" />
+				</p:column>
+
+				<p:column headerText="NombreProvincia">
+					<h:outputText value="#{pr.name}" />
+				</p:column>
+
+				<p:column headerText="NombreDepartamento">
+					<h:outputText value="#{pr.departamento.nombreDepartamento}" />
+				</p:column>
+
+				<p:column headerText="Operación">
+					<h:commandLink action="#{provinciaController.preUpdate(pr)}"
+						value="Modificar" />
+				</p:column>
+
+				<p:column headerText="Operación">
+					<h:commandLink action="listProvincia"
+						actionListener="#{provinciaController.delete(pr)}">
+						Eliminar							
+					</h:commandLink>
+				</p:column>
+
+
+
+			</p:dataTable>
+
+
+
+
+
+
+		</h:form>
+
+
+
+
+	</ui:define>
+
+
+
+
+
+
+
+
+
+
+
+
+</ui:composition>
+</html>
