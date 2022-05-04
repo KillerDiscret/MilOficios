@@ -9,12 +9,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
-
 @Entity
-@Table(name = "Provincia")
-public class Provincia {
+@Table(name = "Distrito")
 
+public class Distrito {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
@@ -23,19 +22,19 @@ public class Provincia {
 	private String name;
 	
 	@ManyToOne
-	@JoinColumn(name = "idDepartamento", nullable = false)
-	private Departamento departamento;
+	@JoinColumn(name = "idProvincia", nullable = false)
+	private Provincia provincia;
 
-	public Provincia() {
+	public Distrito() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Provincia(int id, String name, Departamento departamento) {
+	public Distrito(int id, String name, Provincia provincia) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.departamento = departamento;
+		this.provincia = provincia;
 	}
 
 	public int getId() {
@@ -54,13 +53,12 @@ public class Provincia {
 		this.name = name;
 	}
 
-	public Departamento getDepartamento() {
-		return departamento;
+	public Provincia getProvincia() {
+		return provincia;
 	}
 
-	public void setDepartamento(Departamento departamento) {
-		this.departamento = departamento;
+	public void setProvincia(Provincia provincia) {
+		this.provincia = provincia;
 	}
 
-	
 }

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/html">
+
+<ui:composition template="/master.xhtml">
+
+	<ui:define name="content">
+
+		<h2>Registro de Distrito</h2>
+
+
+		<h:form>
+
+			<h:outputLabel value="Id:" for="id" styleClass="control-label" />
+			<p:inputText id="id" styleClass="form-control"
+				value="#{distritoController.dst.id}" required="true" />
+
+			<h:outputLabel value="Nombre de la Distrito:" for="nombreDistrito"
+				styleClass="control-label" />
+			<p:inputText id="nombreDistrito" styleClass="form-control"
+				value="#{distritoController.dst.name}"
+				required="true" />
+
+
+			<h:outputLabel value="Provincia" for="cboProvincia"
+				styleClass="control-label" />
+			<p:selectOneMenu id="cboProvincia"
+				value="#{distritoController.dst.provincia}"
+				converter="omnifaces.SelectItemsConverter">
+
+				<f:selectItems value="#{distritoController.listaProvincias}"
+					var="p" itemLabel="#{p.name}" itemValue="#{p}" />
+			</p:selectOneMenu>
+
+			<p:commandButton value="Grabar"
+				actionListener="#{distritoController.insert()}"
+				action="listDistrito?faces-redirect=true" update="@form" />
+
+		</h:form>
+
+
+	</ui:define>
+
+</ui:composition>
+</html>

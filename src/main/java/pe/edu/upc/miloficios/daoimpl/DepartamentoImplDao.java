@@ -82,7 +82,7 @@ public class DepartamentoImplDao implements IDepartamentoDao {
 			
 		} catch (Exception e) {
 			
-			System.out.println("Error al buscar vacunas");
+			System.out.println("Error al buscar departamento");
 		}
 		
 		return listaBuscada;

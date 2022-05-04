@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/master.xhtml">
+	
+	<ui:define name="content">
+		<h2>Modificación de distrito</h2>
+		<h:form>
+			<h:outputLabel value="ID" for="id" styleClass="control-label" />
+			<p:inputText value="#{distritoController.dst.id}"
+				id="id" styleClass="form-control"></p:inputText>
+
+			<h:outputLabel value="Nombre de la Distrito" for="name" styleClass="control-label" />
+			<p:inputText value="#{distritoController.dst.name}"
+				id="name" styleClass="form-control"></p:inputText>
+
+			<h:outputLabel value="Provincia" for="cboProvincia"
+				styleClass="control-label" />
+			<p:selectOneMenu id="cboProvincia"
+				value="#{distritoController.dst.provincia}"
+				converter="omnifaces.SelectItemsConverter">
+
+				<f:selectItems value="#{distritoController.listaProvincias}"
+					var="d" itemLabel="#{p.nombreProvincia}" itemValue="#{p}" />
+			</p:selectOneMenu>
+			
+			
+			<p:commandButton value="Actualizar"
+				actionListener="#{distritoController.update()}"
+				action="listDistrito?faces-redirect=true" update="@form"
+				styleClass="btn btn-primary" />
+
+
+		</h:form>
+
+	</ui:define>
+	
+	</ui:composition>
+</html>

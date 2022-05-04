@@ -11,4 +11,8 @@ public interface ITipoNotificacionService {
 	public List<TipoNotificacion> list();
 
 	public void delete(int idTipoNotificacion);
+
+	public void update(TipoNotificacion no);
+
+	public List<TipoNotificacion> findByName(TipoNotificacion no);
 }

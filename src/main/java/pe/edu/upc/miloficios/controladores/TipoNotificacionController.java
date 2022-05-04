@@ -8,6 +8,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+
 import pe.edu.upc.miloficios.entidades.TipoNotificacion;
 import pe.edu.upc.miloficios.service.ITipoNotificacionService;
 
@@ -61,6 +62,34 @@ public class TipoNotificacionController {
 			System.out.println("Error al eliminar en el controller Tipo de Notificacion");
 		}
 
+	}
+	
+	public void update() {
+
+		try {
+			tnService.update(tn);
+
+		} catch (Exception e) {
+			System.out.println("Error al modificar controlador Tipo de Notificacion");
+		}
+
+	}
+	
+	public String preUpdate(TipoNotificacion no) {
+		this.setD(no);
+		return "modificacionTipoNotificacion.xhtml";
+	}
+	
+	public void findByName() {
+		
+		try {
+			listaTipoNotificaciones = tnService.findByName(this.getD());
+			
+		} catch (Exception e) {
+			
+			System.out.println("Error al buscar en el controlador Tipo de Notificación");
+		}
+		
 	}
 
 	// getters and setters

@@ -16,5 +16,4 @@ public interface IProvinciaDao {
 	
 	public List<Provincia> findByName(Provincia p);
 	
-	
 }

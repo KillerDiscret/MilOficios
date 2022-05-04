@@ -56,4 +56,37 @@ public class TipoNotificacionImplDao implements ITipoNotificacionDao {
 		}
 	}
 	
+	@Transactional
+	@Override
+	public void update(TipoNotificacion no) {
+		
+		try {
+			em.merge(no);
+		} catch (Exception e) {
+			System.out.println("Error al modificar Tipo de Notificación en el DAO");
+		}
+		
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TipoNotificacion> findByName(TipoNotificacion no) {
+		
+		List<TipoNotificacion> listaBuscada = new ArrayList<TipoNotificacion>();
+		
+		try {
+			Query q = em.createQuery("from TipoNotificacion tn where tn.nombreTipoNotificacion like ?1");
+			q.setParameter(1, "%" + no.getNombreNotificacion() + "%");
+			listaBuscada = (List<TipoNotificacion>)q.getResultList();
+			
+		} catch (Exception e) {
+			
+			System.out.println("Error al buscar notificación");
+		}
+		
+		return listaBuscada;
+	}
+
+	
+	
 }
