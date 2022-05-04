@@ -11,4 +11,8 @@ public interface ITipoNotificacionDao {
 	public List<TipoNotificacion> list();
 
 	public void delete(int idTipoNotificacion);
+	
+	public void modificar(TipoNotificacion tn);
+	
+	public List<TipoNotificacion> findByName(TipoNotificacion tn);
 }
