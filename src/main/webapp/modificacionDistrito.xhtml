@@ -11,11 +11,11 @@
 		<h2>Modificación de distrito</h2>
 		<h:form>
 			<h:outputLabel value="ID" for="id" styleClass="control-label" />
-			<p:inputText value="#{distritoController.dst.id}"
+			<p:inputText value="#{distritoController.dst.idDistrito}"
 				id="id" styleClass="form-control"></p:inputText>
 
 			<h:outputLabel value="Nombre de la Distrito" for="name" styleClass="control-label" />
-			<p:inputText value="#{distritoController.dst.name}"
+			<p:inputText value="#{distritoController.dst.nombreDistrito}"
 				id="name" styleClass="form-control"></p:inputText>
 
 			<h:outputLabel value="Provincia" for="cboProvincia"
@@ -25,7 +25,7 @@
 				converter="omnifaces.SelectItemsConverter">
 
 				<f:selectItems value="#{distritoController.listaProvincias}"
-					var="d" itemLabel="#{p.nombreProvincia}" itemValue="#{p}" />
+					var="p" itemLabel="#{p.name}" itemValue="#{p}" />
 			</p:selectOneMenu>
 			
 			

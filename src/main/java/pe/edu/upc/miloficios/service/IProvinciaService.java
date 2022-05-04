@@ -10,7 +10,7 @@ public interface IProvinciaService {
 	
 	public List<Provincia> list();
 	
-	public void delete(int idPronvincia);
+	public void delete(int idProvincia);
 	
 	public void update(Provincia pr);
 	

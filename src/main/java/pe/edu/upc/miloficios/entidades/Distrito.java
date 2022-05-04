@@ -16,10 +16,10 @@ public class Distrito {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private int idDistrito;
 	
-	@Column(name = "name", nullable = false, length = 20)
-	private String name;
+	@Column(name = "nombreDistrito", nullable = false, length = 20)
+	private String nombreDistrito;
 	
 	@ManyToOne
 	@JoinColumn(name = "idProvincia", nullable = false)
@@ -30,27 +30,27 @@ public class Distrito {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Distrito(int id, String name, Provincia provincia) {
+	public Distrito(int idDistrito, String nombreDistrito, Provincia provincia) {
 		super();
-		this.id = id;
-		this.name = name;
+		this.idDistrito = idDistrito;
+		this.nombreDistrito = nombreDistrito;
 		this.provincia = provincia;
 	}
 
-	public int getId() {
-		return id;
+	public int getIdDistrito() {
+		return idDistrito;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdDistrito(int idDistrito) {
+		this.idDistrito = idDistrito;
 	}
 
-	public String getName() {
-		return name;
+	public String getNombreDistrito() {
+		return nombreDistrito;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNombreDistrito(String nombreDistrito) {
+		this.nombreDistrito = nombreDistrito;
 	}
 
 	public Provincia getProvincia() {
