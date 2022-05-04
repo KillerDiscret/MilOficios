@@ -11,6 +11,7 @@
 		<class>pe.edu.upc.miloficios.entidades.Provincia</class>
 		<class>pe.edu.upc.miloficios.entidades.Distrito</class>
 		<class>pe.edu.upc.miloficios.entidades.Pregunta</class>
+		<class>pe.edu.upc.miloficios.entidades.Encuesta</class>
 		<properties>
 			<property
 				name="javax.persistence.schema-generation.database.action"
